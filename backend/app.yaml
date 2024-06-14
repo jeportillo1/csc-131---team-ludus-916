@@ -1,0 +1,2 @@
+service: ludus-db
+runtime: nodejs10

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <!-- All the setting and imports for testing -->
+  <head>
+    <!-- add mocha css, to show results -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css"
+    />
+    <!-- add mocha framework code -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
+    <script>
+      // enable bdd-style testing
+      mocha.setup("bdd");
+    </script>
+    <!-- add chai -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
+    <script>
+      // chai has a lot of stuff, let's make assert global
+      let assert = chai.assert;
+    </script>
+    <script src="./All-Info.js"></script>
+  </head>
+
+  <!-- main section with code and tests -->
+  <body>
+    <!-- functions in there own script tags -->
+    <script>
+      describe("/nominations/ - GET - Singleton and Collection", async function () {
+        // Singleton "Titanic"
+        it("098adhxe8aS0CdPdfGVq - Titanic", function () {
+          fetch(
+            `https://ludus-db-dot-csc131.appspot.com/nominations/category/${"098adhxe8aS0CdPdfGVq"
+              .split(" ")
+              .join("%20")}`
+          )
+            .then((response) => response.json())
+            .then((result) => assert.equal(result.json(), film1));
+        });
+        // Singleton "To Charles Chaplin, for acting, writing, directing and producing The Circus ."
+        it("1CyL8JeLbXZub71wUlwr - To Charles Chaplin, for acting, writing, directing and producing The Circus .", function () {
+          fetch(
+            `https://ludus-db-dot-csc131.appspot.com/nominations/${"1CyL8JeLbXZub71wUlwr"
+              .split(" ")
+              .join("%20")}`
+          )
+            .then((response) => response.json())
+            .then((result) => assert.equal(result.json(), film2));
+        });
+        // Singleton "Empire of the Sun"
+        it("1LWtlWX09OUqw1FEnESl - Empire of the Sun", function () {
+          fetch(
+            `https://ludus-db-dot-csc131.appspot.com/nominations/${"1LWtlWX09OUqw1FEnESl"
+              .split(" ")
+              .join("%20")}`
+          )
+            .then((response) => response.json())
+            .then((result) => assert.equal(result.json(), film3));
+        });
+        // Singleton that should error out
+        it("Getting a singleton with a fake id", function () {
+          fetch(
+            `https://ludus-db-dot-csc131.appspot.com/nominations/${"fakeID ha"
+              .split(" ")
+              .join("%20")}`
+          )
+            .then((response) => response.json())
+            .then((result) => assert.equal(result.json(), errorData2));
+        });
+        // Collection
+        it("Getting a singleton with a fake id", function () {
+          fetch("https://ludus-db-dot-csc131.appspot.com/nominations/category/")
+            .then((response) => response.json())
+            .then((result) => assert.equal(result.json(), allData));
+        });
+      });
+
+      describe("/nominations/ - POST - Singleton", async function () {
+        // Testing a POST of a singleton
+        it("Test POST singleton", function () {
+          fetch("https://ludus-db-dot-csc131.appspot.com/nominations/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json;charset=utf-8",
+            },
+            body: body,
+          })
+            .then((response) => response.json())
+            .then((result) => assert.equal(result.json(), post));
+        });
+      });
+
+      describe("/nominations/ - DELETE - Singleton", async function () {
+        // Testing a DELETE of a collection
+        it("Test DELETE collection - dose not exsist", function () {
+          fetch("https://ludus-db-dot-csc131.appspot.com/nominations/", {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json;charset=utf-8",
+            },
+          })
+            .then((response) => response.json())
+            .then((result) => assert.equal(result.json(), errorData4));
+        });
+        // Testing a DELETE of a singleton
+        it("Test DELETE  singleton - dose not exsist", function () {
+          fetch(
+            "https://ludus-db-dot-csc131.appspot.com/nominations/category/dummyname",
+            {
+              method: "DELETE",
+              headers: {
+                "Content-Type": "application/json;charset=utf-8",
+              },
+            }
+          )
+            .then((response) => response.json())
+            .then((result) => assert.equal(result.json(), errorData));
+        });
+        // Testing a DELETE of a singleton given a body
+        it("Test DELETE  singleton - dose not exsist", function () {
+          fetch(
+            "https://ludus-db-dot-csc131.appspot.com/nominations/category/dummyname",
+            {
+              method: "DELETE",
+              headers: {
+                "Content-Type": "application/json;charset=utf-8",
+                body: body,
+              },
+            }
+          )
+            .then((response) => response.json())
+            .then((result) => assert.equal(result.json(), errorData));
+        });
+      });
+    </script>
+
+    <!-- the element with id="mocha" will contain test results -->
+    <div id="mocha"></div>
+
+    <!-- run tests! -->
+    <script>
+      mocha.run();
+    </script>
+  </body>
+</html>

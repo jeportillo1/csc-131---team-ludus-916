@@ -1,0 +1,285 @@
+/**********************Main*******************/
+@import url("https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700,900");
+
+body {
+  font-family: "Titillium Web", sans-serif;
+  transition: all 2s ease;
+}
+
+.no-margin {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/**********************Main*******************/
+
+/**********************React CSS**************/
+input {
+  background-color: #ffeb3b;
+  border: none;
+  color: black;
+  padding: 5px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+label {
+  font-size: medium;
+}
+
+form {
+  width: auto;
+  height: auto;
+}
+
+select {
+  height: 50px;
+  overflow-y: scroll;
+}
+
+.wrap {
+  width: 50%;
+  margin: 3em auto;
+}
+
+.custom-select {
+  border: 1px solid #ccc;
+  border-radius: 0;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 auto;
+  padding: 10px;
+  width: 100%;
+  color: #666;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .custom-select {
+    background: #efefef
+      url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/392/select-arrow.png) 95%
+      50% no-repeat;
+  }
+}
+
+body {
+  background-color: #f5f5f5;
+  font-family: "Roboto", sans-serif;
+}
+
+@media only screen and (max-device-width: 480px) {
+  body .materialCard {
+    width: 95%;
+    margin: 2.5%;
+  }
+}
+
+@media only screen and (min-device-width: 480px) {
+  body .materialCard {
+    width: 30%;
+    float: left;
+    margin: 1.65%;
+  }
+}
+
+.materialCard {
+  box-sizing: border-box;
+  background-color: #ffffff;
+  color: #000000;
+  border-top: 5px solid #ffffff;
+  border-radius: 3px;
+  padding: 15px;
+  margin: 0 auto;
+  box-shadow: 5px 3px 3px 0 rgba(0, 0, 0, 0.26);
+}
+
+.materialCard header {
+  font-size: 1.1em;
+  padding-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.materialCard header h1,
+.materialCard header h2,
+.materialCard header h3,
+.materialCard header h4,
+.materialCard header h5,
+.materialCard header h6 {
+  padding: 0px;
+  margin: 0px;
+  font-size: 1em;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.materialCard header h1 {
+  font-size: 1em;
+}
+
+.materialCard header h2 {
+  font-size: 0.9em;
+}
+
+.materialCard header h3 {
+  font-size: 0.8em;
+}
+
+.materialCard header h4 {
+  font-size: 0.7em;
+}
+
+.materialCard header h5 {
+  font-size: 0.6em;
+}
+
+.materialCard header h6 {
+  font-size: 0.5em;
+}
+
+.materialCard.alert {
+  border-top: 5px solid #e9453a;
+}
+
+.materialCard.success {
+  border-top: 5px solid #8cc04d;
+}
+
+.materialCard.warning {
+  border-top: 5px solid #f49719;
+}
+
+.materialCard.note {
+  border-top: 5px solid #428dcc;
+}
+
+.materialCard.image {
+  border: none;
+}
+
+/**********************React CSS**************/
+
+/**********************Section1***************/
+.section1 {
+  background-color: #ffeb3b;
+  height: 19.5em;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* jumbotron*/
+.jumbotron {
+  background-color: transparent;
+  color: #212121;
+}
+
+/*Navigation bar*/
+.main-navigation-con {
+  margin-bottom: 100px;
+}
+
+.main-navigation {
+  margin-top: 10px;
+  border-radius: 0px;
+}
+
+.main-navigation ul.nav {
+  margin: 12px auto;
+}
+
+.main-navigation a.navbar-brand {
+  color: #ffeb3b;
+  background-color: #212121;
+  border-radius: 1px;
+  height: auto;
+  font-size: 30px;
+  padding: 8px 10px;
+  margin: 10px auto;
+}
+
+.main-navigation ul.nav > li {
+  margin: 0px 5px;
+}
+
+.main-navigation ul.nav > li > a {
+  color: #212121;
+  background-color: #ffeb3b;
+  border-radius: 5px;
+  padding: 5px;
+  font-weight: bold;
+  position: relative;
+  font-weight: 600;
+}
+
+.main-navigation ul.nav > li > a::before {
+  content: "";
+  width: 0px;
+  border-bottom: 1px solid;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transition: all ease 0.2s;
+}
+
+.main-navigation ul.nav > li > a:hover::before {
+  width: 100%;
+}
+
+.main-navigation .navbar-toggle {
+  background-color: #212121;
+}
+
+.main-navigation .navbar-toggle .icon-bar {
+  background-color: #ffeb3b;
+}
+
+.signup-form {
+  background-color: #212121;
+  padding: 10px;
+  border-radius: 0px;
+  color: #ffeb3b;
+  position: relative;
+  border: 1px solid #424242;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.5);
+}
+
+.signup-form::after {
+  content: "";
+  position: absolute;
+  height: 0%;
+  left: -58px;
+  right: 0%;
+  border: 58px solid transparent;
+  border-top-color: #212121;
+  top: 100%;
+  bottom: 0;
+  margin: auto;
+  bottom: 0;
+  z-index: -1;
+}
+
+.signup-form input,
+.signup-form input:focus {
+  box-shadow: none;
+  border-radius: 3px;
+  border: 0px;
+}
+
+.signup-form .submit-btn {
+  display: block;
+  margin: auto;
+  border: none;
+  background-color: #ffeb3b;
+  border-radius: 4px;
+  padding: 5px 25px;
+  color: #212121;
+  font-weight: bold;
+}
+
+/****************** section1 *******************/
